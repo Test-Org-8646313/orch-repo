@@ -32,10 +32,9 @@ jobs:
 
       - name: Clone target-dev-repo
         uses: actions/checkout@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           repository: Test-Org-8646313/target-dev-repo
+          token: ${{ secrets.GITHUB_TOKEN }}
           path: target-source-code
           # ref: 2.
 
