@@ -50,6 +50,7 @@ jobs:
           ls -al
           git config user.name "GitHub Actions Bot"
           git config user.email "github-actions-bot@github.com"
+          git config --unset-all http.https://github.com/.extraheader
           git checkout -b "auto-branch-${GITHUB_SHA}"
           git add .
           git commit -m "Updated new code files"
