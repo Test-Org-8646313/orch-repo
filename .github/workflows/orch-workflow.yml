@@ -43,9 +43,9 @@ jobs:
 
       - name: Setup git config
         run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
           cd target-source-code
+          git config user.name "GitHub Actions Bot"
+          git config user.email "github-actions-bot@github.com"
           git checkout -b "auto-branch-${GITHUB_SHA}"
           git add .
           git commit -m "Updated new code files"
