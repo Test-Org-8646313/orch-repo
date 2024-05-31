@@ -52,6 +52,7 @@ jobs:
           git checkout -b "auto-branch-${GITHUB_SHA}"
           git add .
           git commit -m "Updated new code files"
+          git config --unset-all http.https://github.com/.extraheader
           git push --set-upstream origin "auto-branch-${GITHUB_SHA}"
 
         # - run: git push origin master
