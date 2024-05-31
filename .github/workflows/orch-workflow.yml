@@ -34,7 +34,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: Test-Org-8646313/target-dev-repo
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: "$GITHUB_TOKEN"
           path: target-source-code
           # ref: 2.
 
