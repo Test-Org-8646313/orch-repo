@@ -14,18 +14,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Clone tf-mod-repo
+      - name: Clone json data repo
         uses: actions/checkout@v4
         with:
           repository: Test-Org-8646313/lob-repo
           path: data-files
           # ref: 2.
 
-      - name: Clone json data repo
+      - name: Clone tf-mod-repo
         uses: actions/checkout@v4
         with:
-          repository: Test-Org-8646313/target-dev-repo
-          path: target-source-code
+          repository: Test-Org-8646313/tf-mod-repo
+          path: tf-mod-files
           # ref: 2.
 
       - name: Clone target-dev-repo
