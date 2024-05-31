@@ -3,30 +3,46 @@ name: Orch-Workflow
 on:
   push:
     branches: ["main"]
-    
+
 jobs:
   build:
     runs-on: ubuntu-latest
     # strategy:
     #   matrix:
     #     python-version: ["3.8", "3.9", "3.10"]
-    
+
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Clone tf-mod-repo
-      uses: actions/checkout@v4
-      with:
-        repository: Test-Org-8646313/tf-mod-repo
-        path: tf-mod
-        # ref: 2.
+      - name: Clone tf-mod-repo
+        uses: actions/checkout@v4
+        with:
+          repository: Test-Org-8646313/tf-mod-repo
+          path: tf-mod-files
+          # ref: 2.
 
-    - name: List cloned files
-      run: |
-          cd tf-mod
+      # - name: List cloned files
+      #   run: |
+      #       cd final-app
+      #       ls -al
+
+      - name: Clone target-dev-repo
+        uses: actions/checkout@v4
+        with:
+          repository: Test-Org-8646313/target-dev-repo
+          path: target-source-code
+          # ref: 2.
+
+      - name: Copy tf-mod files
+        run: |
+          cp -R tf-mod-files/formatter target-source-code
+          cp workflow_file.yaml target-source-code/.github/workflows/workflow_file.yaml
+
+      - name: List cloned files
+        run: |
+          cd target-source-code
           ls -al
 
-    
     # - name: Set up Python ${{ matrix.python-version }}
     #   uses: actions/setup-python@v3
     #   with:
