@@ -17,14 +17,16 @@ jobs:
       - name: Clone tf-mod-repo
         uses: actions/checkout@v4
         with:
-          repository: Test-Org-8646313/tf-mod-repo
-          path: tf-mod-files
+          repository: Test-Org-8646313/lob-repo
+          path: data-files
           # ref: 2.
 
-      # - name: List cloned files
-      #   run: |
-      #       cd final-app
-      #       ls -al
+      - name: Clone json data repo
+        uses: actions/checkout@v4
+        with:
+          repository: Test-Org-8646313/target-dev-repo
+          path: target-source-code
+          # ref: 2.
 
       - name: Clone target-dev-repo
         uses: actions/checkout@v4
@@ -37,11 +39,19 @@ jobs:
         run: |
           cp -R tf-mod-files/formatter target-source-code
           cp workflow_file.yaml target-source-code/.github/workflows/workflow_file.yaml
+          cp data-files/data.json target-source-code/data.json
 
-      - name: List cloned files
+      - name: Setup git config
         run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
           cd target-source-code
-          ls -al
+          git checkout -b ${"auto-branch-$GITHUB_SHA"}
+          git add .
+          git commit -m "Updated new code files"
+          git push
+
+        # - run: git push origin master
 
     # - name: Set up Python ${{ matrix.python-version }}
     #   uses: actions/setup-python@v3
