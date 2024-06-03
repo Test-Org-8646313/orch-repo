@@ -1,4 +1,4 @@
-name: Python Test application
+name: <WORKFLOW_NAME>
 on: create
 
 permissions:

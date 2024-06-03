@@ -38,6 +38,7 @@ jobs:
           cp -R ../tf-mod-files/formatter .
           cp ../workflow_file.yaml ./.github/workflows/workflow_file-${GITHUB_SHA}.yaml
           cp ../data-files/data.json ./data.json
+          sed -i 's/<WORKFLOW_NAME>/${GITHUB_REF##*/}-${GITHUB_SHA}/g' ./.github/workflows/workflow_file-${GITHUB_SHA}.yaml
           ls -al
 
           # git checkout -b new-branch  # Create and checkout a new branch
