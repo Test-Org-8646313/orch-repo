@@ -46,9 +46,9 @@ jobs:
 
       - name: Copy tf-mod files
         run: |
-          cp -R tf-mod-files/formatter target-source-code
-          cp workflow_file.yaml target-source-code/.github/workflows/workflow_file-${GITHUB_SHA}.yaml
-          cp data-files/data.json target-source-code/data.json
+          sudo cp -R tf-mod-files/formatter target-source-code
+          sudo cp workflow_file.yaml target-source-code/.github/workflows/workflow_file-${GITHUB_SHA}.yaml
+          sudo cp data-files/data.json target-source-code/data.json
 
       - name: Setup git config
         env:
