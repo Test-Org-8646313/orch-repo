@@ -33,7 +33,8 @@ jobs:
       - name: Clone child repository
         run:
           git clone https://x-access-token:${{ secrets.CHILD_REPO_ACCESS_TOKEN }}@github.com/Test-Org-8646313/target-dev-repo.git
-          # cd <child-repo>
+          cd target-dev-repo
+          ls -al
           # git checkout -b new-branch  # Create and checkout a new branch
 
       # - name: Clone target-dev-repo
