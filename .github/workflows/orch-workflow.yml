@@ -33,7 +33,7 @@ jobs:
       - name: Clone child repository
         env:
           # WORKFLOW_NAME: ${{env.GITHUB_REF##*/}}-${{env.GITHUB_SHA}}
-          WORKFLOW_NAME: ${{GITHUB_SHA}}
+          # WORKFLOW_NAME: ${{GITHUB_SHA}}
         run: |
           git clone https://x-access-token:${{ secrets.CHILD_REPO_ACCESS_TOKEN }}@github.com/Test-Org-8646313/target-dev-repo.git
           cd target-dev-repo
@@ -41,7 +41,7 @@ jobs:
           cp -R ../tf-mod-files/formatter .
           cp ../workflow_file.yaml ./.github/workflows/workflow_file-${GITHUB_SHA}.yaml
           cp ../data-files/data.json ./data.json
-          sed -i "s|<WORKFLOW_NAME>|workflow-$WORKFLOW_NAME|g" ./.github/workflows/workflow_file-${GITHUB_SHA}.yaml
+          sed -i "s|<WORKFLOW_NAME>|workflow-$GITHUB_SHA|g" ./.github/workflows/workflow_file-${GITHUB_SHA}.yaml
           ls -al
 
           # git checkout -b new-branch  # Create and checkout a new branch
