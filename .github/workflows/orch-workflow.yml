@@ -30,12 +30,18 @@ jobs:
           path: tf-mod-files
           # ref: 2.
 
-      - name: Clone target-dev-repo
-        uses: actions/checkout@v4
-        with:
-          repository: Test-Org-8646313/target-dev-repo
-          path: target-source-code
-          # ref: 2.
+      - name: Clone child repository
+        run:
+          git clone https://x-access-token:${{ secrets.CHILD_REPO_ACCESS_TOKEN }}@github.com/Test-Org-8646313/target-dev-repo.git
+          # cd <child-repo>
+          # git checkout -b new-branch  # Create and checkout a new branch
+
+      # - name: Clone target-dev-repo
+      #   uses: actions/checkout@v4
+      #   with:
+      #     repository: Test-Org-8646313/target-dev-repo
+      #     path: target-source-code
+      #     # ref: 2.
 
       - name: Copy tf-mod files
         run: |
