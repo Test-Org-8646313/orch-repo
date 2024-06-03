@@ -1,7 +1,5 @@
 name: Python Test application
-on:
-  push:
-    branches: ["main"]
+on: create
 
 permissions:
   contents: read
