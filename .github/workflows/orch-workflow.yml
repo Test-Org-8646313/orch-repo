@@ -57,7 +57,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.CHILD_REPO_ACCESS_TOKEN }}
         run: |
-          cd target-source-code
+          cd target-dev-repo
           ls -al
           git config user.name "GitHub Actions Bot"
           git config user.email "github-actions-bot@github.com"
