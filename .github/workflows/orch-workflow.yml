@@ -2,7 +2,7 @@ name: Orch-Workflow
 
 on:
   push:
-    branches: ["main"]
+    branches: ["workflow-actions"]
 
 permissions: write-all
 
