@@ -35,9 +35,9 @@ jobs:
           git clone https://x-access-token:${{ secrets.CHILD_REPO_ACCESS_TOKEN }}@github.com/Test-Org-8646313/target-dev-repo.git
           cd target-dev-repo
           ls -al
-          cp -R ~/tf-mod-files/formatter .
-          cp ~/workflow_file.yaml ./.github/workflows/workflow_file-${GITHUB_SHA}.yaml
-          cp ~/data-files/data.json ./data.json
+          cp -R ../tf-mod-files/formatter .
+          cp ../workflow_file.yaml ./.github/workflows/workflow_file-${GITHUB_SHA}.yaml
+          cp ../data-files/data.json ./data.json
           ls -al
 
           # git checkout -b new-branch  # Create and checkout a new branch
