@@ -31,7 +31,7 @@ jobs:
           # ref: 2.
 
       - name: Clone child repository
-        run:
+        run: |
           git clone https://x-access-token:${{ secrets.CHILD_REPO_ACCESS_TOKEN }}@github.com/Test-Org-8646313/target-dev-repo.git
           cd target-dev-repo
           ls -al
