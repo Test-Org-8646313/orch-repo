@@ -44,6 +44,8 @@ jobs:
           cp data-files/data.json target-source-code/data.json
 
       - name: Setup git config
+        env:
+          GITHUB_TOKEN: ${{ secrets.CHILD_REPO_ACCESS_TOKEN }}
         run: |
           cd target-source-code
           ls -al
