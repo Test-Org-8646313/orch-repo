@@ -86,7 +86,7 @@ jobs:
     #     pylint $(git ls-files '*.py')
 
   track_workflow2:
-    - uses: convictional/trigger-workflow-and-wait@v1.6.
+    - uses: convictional/trigger-workflow-and-wait@v1.6.1
       # env:
       #   GITHUB_TOKEN: ${{ secrets.CHILD_REPO_ACCESS_TOKEN }}
       #   REPO: "Test-Org-8646313/target-dev-repo"
