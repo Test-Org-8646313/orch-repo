@@ -112,6 +112,16 @@ jobs:
           echo "------------------------------------"
           echo "Job finished with final status: $result"
 
+      - name: Delete branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.CHILD_REPO_ACCESS_TOKEN }}
+          REPO: "Test-Org-8646313/target-dev-repo"
+          BRANCH: "auto-branch-${{ github.sha }}"
+        uses: dawidd6/action-delete-branch@v3
+        with:
+          github_token: ${{ secrets.CHILD_REPO_ACCESS_TOKEN }}
+          branches: "auto-branch-${{ github.sha }}"
+
   # track_workflow2:
   #   runs-on: ubuntu-latest
   #   needs: [BranchDeploy]
