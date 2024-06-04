@@ -20,17 +20,16 @@ jobs:
           python -m pip install --upgrade pip
 
       - name: Wait for manual approval
-        steps:
-          - uses: trstringer/manual-approval@v1
-            with:
-              secret: ${{ secrets.REPO_ACCESS_TOKEN }}
-              approvers: makervinof
-              minimum-approvals: 1
-              issue-title: "Deploying Dev"
-              issue-body: "Please approve or deny the deployment of Dev"
-              exclude-workflow-initiator-as-approver: false
-              additional-approved-words: ""
-              additional-denied-words: ""
+        uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ secrets.REPO_ACCESS_TOKEN }}
+          approvers: makervinof
+          minimum-approvals: 1
+          issue-title: "Deploying Dev"
+          issue-body: "Please approve or deny the deployment of Dev"
+          exclude-workflow-initiator-as-approver: false
+          additional-approved-words: ""
+          additional-denied-words: ""
 
       - name: Run Python Applications
         run: python main.py
