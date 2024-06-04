@@ -93,7 +93,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.CHILD_REPO_ACCESS_TOKEN }}
           REPO: "Test-Org-8646313/target-dev-repo"
-          BRANCH: "auto-branch-${{ GITHUB_SHA }}"
+          BRANCH: "auto-branch-${{ github.sha }}"
           #  ${{ needs.CI.outputs.child_repo_branch }}
         run: |
           STATUS="not-triggered"
