@@ -120,6 +120,8 @@ jobs:
         uses: dawidd6/action-delete-branch@v3
         with:
           github_token: ${{ secrets.CHILD_REPO_ACCESS_TOKEN }}
+          owner: "Test-Org-8646313"
+          repository: "target-dev-repo"
           branches: "auto-branch-${{ github.sha }}"
 
   # track_workflow2:
